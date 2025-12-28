@@ -32,31 +32,19 @@
             Label lblscore;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameForm));
             tiles2 = new PictureBox();
-            playerdown = new PictureBox();
             box2 = new PictureBox();
             box1 = new PictureBox();
             tiles1 = new PictureBox();
             lblhighscore = new Label();
             gameTimer = new System.Windows.Forms.Timer(components);
+            playerdown = new PictureBox();
             lblscore = new Label();
             ((System.ComponentModel.ISupportInitialize)tiles2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)playerdown).BeginInit();
             ((System.ComponentModel.ISupportInitialize)box2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)box1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)tiles1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)playerdown).BeginInit();
             SuspendLayout();
-            // 
-            // lblscore
-            // 
-            lblscore.AutoSize = true;
-            lblscore.BackColor = Color.Transparent;
-            lblscore.Font = new Font("Segoe UI Black", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblscore.ForeColor = Color.White;
-            lblscore.Location = new Point(23, 9);
-            lblscore.Name = "lblscore";
-            lblscore.Size = new Size(144, 45);
-            lblscore.TabIndex = 7;
-            lblscore.Text = "Score: 0";
             // 
             // tiles2
             // 
@@ -67,19 +55,6 @@
             tiles2.SizeMode = PictureBoxSizeMode.StretchImage;
             tiles2.TabIndex = 1;
             tiles2.TabStop = false;
-            // 
-            // playerdown
-            // 
-            playerdown.BackColor = Color.Transparent;
-            playerdown.BackgroundImageLayout = ImageLayout.Stretch;
-            playerdown.Image = Properties.Resources.run_down0;
-            playerdown.Location = new Point(23, 230);
-            playerdown.Name = "playerdown";
-            playerdown.Size = new Size(73, 103);
-            playerdown.SizeMode = PictureBoxSizeMode.StretchImage;
-            playerdown.TabIndex = 5;
-            playerdown.TabStop = false;
-            playerdown.Tag = "obstacle";
             // 
             // box2
             // 
@@ -127,7 +102,32 @@
             // 
             gameTimer.Enabled = true;
             gameTimer.Interval = 20;
-            gameTimer.Tick += GameTimerEvent;
+            //gameTimer.Tick += GameTimerEvent;
+            // 
+            // lblscore
+            // 
+            lblscore.AutoSize = true;
+            lblscore.BackColor = Color.Transparent;
+            lblscore.Font = new Font("Segoe UI Black", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblscore.ForeColor = Color.White;
+            lblscore.Location = new Point(23, 9);
+            lblscore.Name = "lblscore";
+            lblscore.Size = new Size(144, 45);
+            lblscore.TabIndex = 7;
+            lblscore.Text = "Score: 0";
+            // 
+            // playerdown
+            // 
+            playerdown.BackColor = Color.Transparent;
+            playerdown.BackgroundImageLayout = ImageLayout.Stretch;
+            playerdown.Image = Properties.Resources.run_down0;
+            playerdown.Location = new Point(23, 230);
+            playerdown.Name = "playerdown";
+            playerdown.Size = new Size(73, 103);
+            playerdown.SizeMode = PictureBoxSizeMode.StretchImage;
+            playerdown.TabIndex = 5;
+            playerdown.TabStop = false;
+            playerdown.Tag = "obstacle";
             // 
             // GameForm
             // 
@@ -145,13 +145,13 @@
             Controls.Add(tiles2);
             Name = "GameForm";
             Text = "Game Form";
-            Load += GameForm_Load;
-            KeyUp += KeyIsUp;
+            //Load += GameForm_Load;
+            //KeyUp += KeyIsUp;
             ((System.ComponentModel.ISupportInitialize)tiles2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)playerdown).EndInit();
             ((System.ComponentModel.ISupportInitialize)box2).EndInit();
             ((System.ComponentModel.ISupportInitialize)box1).EndInit();
             ((System.ComponentModel.ISupportInitialize)tiles1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)playerdown).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -159,11 +159,12 @@
         #endregion
 
         private PictureBox tiles2;
-        private PictureBox playerdown;
         private PictureBox box2;
         private PictureBox box1;
         private PictureBox tiles1;
         private Label lblhighscore;
+        private Label lblscore;
         private System.Windows.Forms.Timer gameTimer;
+        private PictureBox playerdown;
     }
 }
