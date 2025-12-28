@@ -33,12 +33,12 @@
             tiles1 = new PictureBox();
             box1 = new PictureBox();
             box2 = new PictureBox();
-            playerup = new PictureBox();
+            playerdown = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)tiles2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)tiles1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)box1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)box2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)playerup).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)playerdown).BeginInit();
             SuspendLayout();
             // 
             // tiles2
@@ -79,15 +79,15 @@
             box2.TabIndex = 4;
             box2.TabStop = false;
             // 
-            // playerup
+            // playerdown
             // 
-            playerup.BackColor = Color.Transparent;
-            playerup.Image = Properties.Resources.run_down0;
-            playerup.Location = new Point(23, 199);
-            playerup.Name = "playerup";
-            playerup.Size = new Size(127, 134);
-            playerup.TabIndex = 5;
-            playerup.TabStop = false;
+            playerdown.BackColor = Color.Transparent;
+            playerdown.Image = Properties.Resources.run_down0;
+            playerdown.Location = new Point(23, 199);
+            playerdown.Name = "playerdown";
+            playerdown.Size = new Size(127, 134);
+            playerdown.TabIndex = 5;
+            playerdown.TabStop = false;
             // 
             // GameForm
             // 
@@ -95,7 +95,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(650, 603);
-            Controls.Add(playerup);
+            Controls.Add(playerdown);
             Controls.Add(box2);
             Controls.Add(box1);
             Controls.Add(tiles1);
@@ -107,7 +107,7 @@
             ((System.ComponentModel.ISupportInitialize)tiles1).EndInit();
             ((System.ComponentModel.ISupportInitialize)box1).EndInit();
             ((System.ComponentModel.ISupportInitialize)box2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)playerup).EndInit();
+            ((System.ComponentModel.ISupportInitialize)playerdown).EndInit();
             ResumeLayout(false);
         }
 
@@ -117,6 +117,6 @@
         private PictureBox tiles1;
         private PictureBox box1;
         private PictureBox box2;
-        private PictureBox playerup;
+        private PictureBox playerdown;
     }
 }
