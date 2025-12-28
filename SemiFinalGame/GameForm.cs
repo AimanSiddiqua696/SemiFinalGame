@@ -6,5 +6,10 @@ namespace SemiFinalGame
         {
             InitializeComponent();
         }
+
+        private void GameForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
