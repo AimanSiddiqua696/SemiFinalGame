@@ -15,11 +15,8 @@ namespace SemiFinalGame.Entities
         public IMovement Movement { get; set; } // Horizontal movement
         public float SpawnXRatio { get; private set; } // use for resize the form
         public float SpawnYRatio { get; private set; } // use for resize the form
-        private int initialFormWidth;
-        private int initialFormHeight;
 
-
-        public Coin(Image image, Point startPos, int value, Size size, float leftBound, float rightBound)
+        public Coin(Image image, Point startPos, int value, Size size, float leftBound, float rightBound, int formWidth, int formHeight)
         {
             Value = value;
 
@@ -37,9 +34,10 @@ namespace SemiFinalGame.Entities
 
             // Assign horizontal patrol movement
             Movement = new HorizontalPatrolMovement(leftBound, rightBound);
-            SpawnXRatio = startPos.X / (float)initialFormWidth;
-            SpawnYRatio = startPos.Y / (float)initialFormHeight;
-
+            
+            // Calculate ratios based on the passed form dimensions
+            SpawnXRatio = startPos.X / (float)formWidth;
+            SpawnYRatio = startPos.Y / (float)formHeight;
         }
     }
 }

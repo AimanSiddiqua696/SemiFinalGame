@@ -146,6 +146,103 @@
     <value>..\Resources\giphy.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="giphy1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\..\giphy1.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Resources\giphy (1).gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+
+  <data name="tile000" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tile000.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile001" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tile001.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile002" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tile002.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile003" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tile003.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile004" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tile004.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile005" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tile005.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile006" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tile006.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile007" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tile007.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile008" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tile008.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile009" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tile009.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile010" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tile010.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile011" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tile011.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile012" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tile012.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile013" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tile013.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile014" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tile014.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile015" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tile015.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile016" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tile016.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile017" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tile017.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile018" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tile018.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile019" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tile019.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile020" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tile020.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile021" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tile021.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile022" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tile022.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile023" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tile023.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile024" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tile024.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile025" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tile025.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile026" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tile026.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile027" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tile027.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile028" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tile028.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile029" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tile029.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile030" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tile030.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile031" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tile031.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

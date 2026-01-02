@@ -31,7 +31,7 @@ namespace SemiFinalGame
         private void CreatePlayer()
         {
             playerSprite = new PictureBox();
-            playerSprite.Size = new Size(48, 48);   // adjust if needed
+            playerSprite.Size = new Size(64, 64);   // Increased from 48,48
             playerSprite.Location = new Point(100, 300);
 
             //  IMAGE FROM RESOURCES
@@ -44,6 +44,49 @@ namespace SemiFinalGame
             // Link GameObject with sprite
             player = new GameObject();
             player.Position = new PointF(playerSprite.Left, playerSprite.Top);
+
+            // --- ANIMATION SETUP ---
+            var anims = new Dictionary<string, List<Image>>();
+
+            // Helper to load range
+            List<Image> LoadFrames(string baseName, int start, int count)
+            {
+                var frames = new List<Image>();
+                for (int i = 0; i < count; i++)
+                {
+                    // Assuming resource names like tile000, tile001, etc.
+                    string resName = $"tile{(start + i).ToString("D3")}";
+                    var img = (Image)Properties.Resources.ResourceManager.GetObject(resName);
+                    if (img != null) frames.Add(img);
+                }
+                return frames;
+            }
+
+            // Mapping based on tile indices
+            // Mapping based on tile indices (Corrected based on visual feedback)
+            anims["Down"] = LoadFrames("tile", 0, 8);   // 000-007
+            anims["Up"] = LoadFrames("tile", 8, 8);     // 008-015
+            anims["Left"] = LoadFrames("tile", 16, 8);  // 016-023
+            anims["Right"] = LoadFrames("tile", 24, 8); // 024-031
+
+            // Fallback if resources miss - ensure NO list is empty
+            if (anims["Down"].Count == 0) anims["Down"].Add(Properties.Resources.run_down0);
+            if (anims["Up"].Count == 0) anims["Up"].AddRange(anims["Down"]); // Fallback to Down if Up missing
+            if (anims["Left"].Count == 0) anims["Left"].AddRange(anims["Down"]); // Fallback
+            if (anims["Right"].Count == 0) anims["Right"].AddRange(anims["Down"]); // Fallback
+
+            if (player is Player p)
+            {
+                 p.SetAnimation(anims, "Down");
+            }
+            else
+            {
+                // Re-create as Player if it was just GameObject
+                var oldPos = player.Position;
+                player = new Player(); 
+                player.Position = oldPos;
+                ((Player)player).SetAnimation(anims, "Down");
+            }
         }
 
         public GameForm()
@@ -58,16 +101,19 @@ namespace SemiFinalGame
             this.DoubleBuffered = true;
             this.KeyPreview = true;
 
-            CreatePlayer();     // Add player first
+            // Prevent runtime logic from running in the Designer
+            if (System.ComponentModel.LicenseManager.UsageMode == System.ComponentModel.LicenseUsageMode.Designtime)
+                return;
 
+            CreatePlayer();     // Add player first
             CreateScoreLabel(); // Add score label last
             SpawnCoins();       // Add coins next
             SetupObstacles();   // Add obstacles
 
             scoreLabel.BringToFront();
 
-            horizontalMovement = new HorizontalMovement(5f);
-            verticalMovement = new VerticalMovement(5f);
+            horizontalMovement = new HorizontalMovement(8f);
+            verticalMovement = new VerticalMovement(8f);
 
             gameTimer.Interval = 20;
             gameTimer.Tick += GameTimer_Tick;
@@ -80,18 +126,47 @@ namespace SemiFinalGame
 
         private void GameTimer_Tick(object sender, EventArgs e)
         {
+            if (gameEnded) return;
+
             // ================= PLAYER MOVEMENT =================
+            string newDirection = null;
+
             if (moveLeft)
+            {
                 horizontalMovement.MoveLeft(player);
+                newDirection = "Left";
+            }
 
             if (moveRight)
+            {
                 horizontalMovement.MoveRight(player, this.ClientSize.Width - playerSprite.Width);
+                newDirection = "Right";
+            }
 
             if (moveUp)
+            {
                 verticalMovement.MoveUp(player);
+                newDirection = "Up";
+            }
 
             if (moveDown)
+            {
                 verticalMovement.MoveDown(player, this.ClientSize.Height - playerSprite.Height);
+                newDirection = "Down";
+            }
+
+            // Update Animation
+            if (player is Player p)
+            {
+                if (newDirection != null)
+                {
+                    p.ChangeDirection(newDirection);
+                    p.Update(new GameTime { DeltaTime = 0.02f }); // approx for 20ms interval
+                }
+                
+                if (p.Sprite != null)
+                    playerSprite.Image = p.Sprite;
+            }
 
             // Apply position to sprite
             playerSprite.Left = (int)player.Position.X;
@@ -121,12 +196,12 @@ namespace SemiFinalGame
             }
         }
 
-        private bool isGameOver = false;
+
 
         private void GameOver()
         {
             if (gameEnded) return;
-
+            ResetMovementFlags();
             gameEnded = true;
             gameTimer.Stop();
 
@@ -141,14 +216,16 @@ namespace SemiFinalGame
                 RestartGame();
             else
                 this.Close();
+            this.Focus();
         }
 
 
         private void RestartGame()
         {
+            ResetMovementFlags();
             // Reset flags
             gameEnded = false;
-            isGameOver = false;
+            gameEnded = false;
 
             // Reset score
             score = 0;
@@ -180,6 +257,7 @@ namespace SemiFinalGame
             SetupObstacles();    // IMPORTANT
 
             gameTimer.Start();
+            this.Focus();
         }
 
 
@@ -248,7 +326,7 @@ namespace SemiFinalGame
                 float leftBound = Math.Max(0, x - 50);
                 float rightBound = Math.Min(formWidth - 32, x + 50); // 32 = coin width
 
-                Coin coin = new Coin(coinImage, new Point(x, y), coinValue, new Size(32, 32), leftBound, rightBound);
+        Coin coin = new Coin(coinImage, new Point(x, y), coinValue, new Size(48, 48), leftBound, rightBound, formWidth, formHeight);
 
                 this.Controls.Add(coin.Sprite);
                 coins.Add(coin);
@@ -303,27 +381,41 @@ namespace SemiFinalGame
             else
                 this.Close();
         }
+        private void ResetMovementFlags()
+        {
+            moveLeft = false;
+            moveRight = false;
+            moveUp = false;
+            moveDown = false;
+        }
+
 
 
 
 
         private void SetupObstacles()
         {
-            obstacles.Clear(); // Clear old obstacles if any
+            obstacles.Clear();
 
+            int obstacleCount = 10; // 🔥 increase from 5 to 10
+            int formWidth = this.ClientSize.Width;
             int formHeight = this.ClientSize.Height;
 
-            // Define X positions and initial Y positions for 5 obstacles
-            int[] xPositions = { 150, 300, 450, 600, 750 };
-            float[] startYPositions = { 0, formHeight - 20, 50, formHeight - 70, 100 };
-            float[] speeds = { 2.5f, -2.5f, 3f, -3f, 2f }; // mix of down/up
+            Random rnd = new Random();
 
-            for (int i = 0; i < 5; i++)
+            // Even horizontal spacing
+            int spacing = formWidth / (obstacleCount + 1);
+
+            for (int i = 0; i < obstacleCount; i++)
             {
                 PictureBox box = new PictureBox();
-                box.Size = new Size(60, 20);
-                box.Location = new Point(xPositions[i], (int)startYPositions[i]);
-                box.Image = Properties.Resources.box; // make sure image exists
+                box.Size = new Size(80, 30); // Increased from 60,20
+
+                int x = spacing * (i + 1);
+                int y = rnd.Next(0, formHeight - box.Height);
+
+                box.Location = new Point(x, y);
+                box.Image = Properties.Resources.box;
                 box.SizeMode = PictureBoxSizeMode.StretchImage;
                 box.BackColor = Color.Transparent;
 
@@ -333,9 +425,14 @@ namespace SemiFinalGame
                 float topBound = 0;
                 float bottomBound = formHeight - box.Height;
 
+                // Random up/down speed
+                float speed = rnd.Next(2, 4);
+                if (rnd.Next(2) == 0)
+                    speed = -speed;
+
                 obstacles.Add(new Obstacle(
                     box,
-                    new VerticalPatrolMovement(topBound, bottomBound, speeds[i])
+                    new VerticalPatrolMovement(topBound, bottomBound, speed)
                 ));
             }
         }
@@ -411,10 +508,6 @@ namespace SemiFinalGame
                 }
             }
         }
-
-
-
-
 
     }
 }

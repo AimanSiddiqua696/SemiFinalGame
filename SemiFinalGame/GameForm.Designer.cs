@@ -36,7 +36,7 @@
             // 
             // gameTimer
             // 
-            gameTimer.Enabled = true;
+            gameTimer.Enabled = false;
             gameTimer.Interval = 20;
             // 
             // GameForm
