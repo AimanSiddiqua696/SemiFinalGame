@@ -66,7 +66,8 @@ namespace SemiFinalGame
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.DialogResult = DialogResult.No;
+            this.Close();
         }
     }
 }
