@@ -27,11 +27,7 @@ namespace SemiFinalGame.Entities
             base.Update(gameTime);
         }
 
-        /// Custom draw: demonstrates polymorphism (override base draw to provide enemy visuals).
-        public override void Draw(Graphics g)
-        {
-            g.FillRectangle(Brushes.Red, Bounds);
-        }
+
 
         /// On collision, enemy deactivates when hit by bullets (encapsulation of reaction logic inside the entity).
         public override void OnCollision(GameObject other)

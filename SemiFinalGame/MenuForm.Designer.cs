@@ -28,6 +28,7 @@ namespace SemiFinalGame
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuForm));
             btnStart = new Button();
             btnExit = new Button();
             label1 = new Label();
@@ -81,7 +82,7 @@ namespace SemiFinalGame
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Properties.Resources.backgroundimage;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(927, 617);
             Controls.Add(label1);

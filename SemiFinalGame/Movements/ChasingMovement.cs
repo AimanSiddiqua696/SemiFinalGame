@@ -22,6 +22,16 @@ namespace SemiFinalGame.Movements
             float dx = player.Position.X - obj.Position.X;
             float dy = player.Position.Y - obj.Position.Y;
 
+            // Update Sprite based on horizontal direction to player
+            if (dx < 0)
+            {
+                obj.Sprite = SemiFinalGame.Properties.Resources.leftside;
+            }
+            else if (dx > 0)
+            {
+                obj.Sprite = SemiFinalGame.Properties.Resources.rightside;
+            }
+
             // Distance between enemy and player
             float distance = (float)Math.Sqrt(dx * dx + dy * dy);
 

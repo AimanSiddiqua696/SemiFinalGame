@@ -322,9 +322,12 @@ namespace SemiFinalGame
 
         private void CreateHealthBar()
         {
+            HealthLabel = new Label();
+            HealthLabel.Text = "Health: ";
             // Background (gray)
             healthBarBackground = new Panel
             {
+
                 Size = new Size(150, 20),
                 BackColor = Color.Gray,
                 Location = new Point(this.ClientSize.Width - 160, 40),
@@ -344,13 +347,12 @@ namespace SemiFinalGame
             healthBarForeground.BringToFront();
         }
 
-        private void GameTimer_Tick(object sender, EventArgs e)
-        {
+        private void GameTimer_Tick(object sender, EventArgs e) //It is the main game loop that updates movement, animation, collisions, and rendering every frame.
+        { //A timer provides continuous updates at fixed intervals to simulate real-time gameplay.
             if (gameEnded) return;
 
             // PLAYER MOVEMENT 
-            string newDirection = null;
-
+            string newDirection = null;//Stores player’s current movement direction
             if (moveLeft)
             {
                 horizontalMovement.MoveLeft(player);
@@ -404,24 +406,16 @@ namespace SemiFinalGame
                     break; // prevent multiple hits in same frame
                 }
             }
-
-
             // COINS UPDATE
             UpdateCoins();
-
             //  STONES UPDATE (Level 2) 
             UpdateStones();
-
-
             // CHASER UPDATE (Level 3) 
             UpdateChaser();
-
             //  BACKGROUND ANIMATION 
-
             UpdateBackground();
             this.Invalidate(); // trigger OnPaint
         }
-
         private void UpdateBackground()
         {
             // Move Background Left to Right
@@ -1025,9 +1019,9 @@ namespace SemiFinalGame
 
             // Create Sprite
             chaserSprite = new PictureBox();
-            chaserSprite.Size = new Size(60, 60);
-            chaserSprite.BackColor = Color.Red; // Placeholder if no image
-            // chaserSprite.Image = ... (If you have an image, e.g. Properties.Resources.enemy);
+            chaserSprite.Size = new Size(100, 100);
+            chaserSprite.BackColor = Color.Transparent; 
+            chaserSprite.Image = SemiFinalGame.Properties.Resources.rightside;
             chaserSprite.Location = new Point(this.ClientSize.Width - 100, 100); // Start top-right
             chaserSprite.SizeMode = PictureBoxSizeMode.StretchImage;
 
@@ -1058,6 +1052,8 @@ namespace SemiFinalGame
             // Sync Sprite
             chaserSprite.Left = (int)chaser.Position.X;
             chaserSprite.Top = (int)chaser.Position.Y;
+            if (chaser.Sprite != null)
+                chaserSprite.Image = chaser.Sprite;
 
             // Collision
             if (playerSprite.Bounds.IntersectsWith(chaserSprite.Bounds))
